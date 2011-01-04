@@ -1,0 +1,68 @@
+options {
+  LOOKAHEAD = 1;
+  CHOICE_AMBIGUITY_CHECK = 2;
+  OTHER_AMBIGUITY_CHECK = 1;
+  STATIC = true;
+  DEBUG_PARSER = false;
+  DEBUG_LOOKAHEAD = false;
+  DEBUG_TOKEN_MANAGER = false;
+  ERROR_REPORTING = true;
+  JAVA_UNICODE_ESCAPE = false;
+  UNICODE_INPUT = false;
+  IGNORE_CASE = false;
+  USER_TOKEN_MANAGER = false;
+  USER_CHAR_STREAM = false;
+  BUILD_PARSER = true;
+  BUILD_TOKEN_MANAGER = true;
+  SANITY_CHECK = true;
+  FORCE_LA_CHECK = false;
+}
+
+PARSER_BEGIN(TimestampParser)
+
+package timesheet;
+
+import java.util.*;
+
+public class TimestampParser {
+
+  public static void main(String args[]) throws ParseException, java.io.IOException {
+    System.out.print("Please enter a timestamp: " );
+    java.io.InputStream in = System.in;
+    Calendar cal = parse(in);
+    System.out.println( cal.getTime() );
+  }
+
+  private static TimestampParser parser;
+
+  public static Calendar parse( java.io.InputStream in )
+      throws ParseException, java.io.IOException
+  {
+    if( parser == null ) {
+       parser = new TimestampParser(in);
+    } else {
+       parser.ReInit(in);
+    }
+    return parser.Timestamp();
+  }
+}
+
+
+PARSER_END(TimestampParser)
+
+TOKEN : 
+{
+    <DECIMAL_LITERAL: ["1"-"9"] (["0"-"9"])*>
+}
+
+Calendar Timestamp() :
+{
+   Calendar ret = Calendar.getInstance();
+   mm
+   hh:mm
+   dd hh:mm
+   dd.mm hh:mm
+   dd.mm.yyyy hh:mm
+}
+{
+}
