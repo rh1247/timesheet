@@ -27,7 +27,6 @@ import java.util.Calendar;
 
 /**
  *
- * @author  richard.hierlmeier@sun.com
  */
 public class ListCommand extends AbstractCommand {
 

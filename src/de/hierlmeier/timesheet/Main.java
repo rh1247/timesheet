@@ -23,7 +23,6 @@ package de.hierlmeier.timesheet;
 
 /**
  *
- * @author richard.hierlmeier@sun.com
  */
 public class Main {
    

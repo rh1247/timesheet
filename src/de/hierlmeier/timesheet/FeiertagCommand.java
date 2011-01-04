@@ -27,7 +27,6 @@ import java.util.Enumeration;
 
 /**
  *
- * @author  richard.hierlmeier@sun.com
  */
 public class FeiertagCommand extends AbstractCommand {
    

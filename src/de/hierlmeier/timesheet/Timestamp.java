@@ -29,7 +29,6 @@ import java.util.regex.Pattern;
 
 /**
  *
- * @author  richard.hierlmeier@sun.com
  */
 public class Timestamp {
 

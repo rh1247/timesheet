@@ -30,7 +30,6 @@ import java.util.StringTokenizer;
 
 /**
  *
- * @author  richard.hierlmeier@sun.com
  */
 public class Entry implements Comparable {
    
